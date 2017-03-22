@@ -2,11 +2,9 @@
   "name": "gulp-striptags",
   "version": "1.0.0",
   "description": "Gulp wrapper for npm striptags module",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "mocha",
-    "coverage": "istanbul cover _mocha -- -R spec",
-    "start": "node index.js"
+    "test": "nyc mocha"
   },
   "keywords": [
     "gulp-striptags",
@@ -19,14 +17,17 @@
   "dependencies": {
     "gulp-util": "^3.0.8",
     "striptags": "^3.0.1",
-    "through2": "^2.0.3",
-    "vinyl": "^2.0.1"
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "assert": "^1.4.1",
+    "del": "^2.2.2",
     "eslint": "^3.18.0",
+    "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "vinyl": "^2.0.1"
   }
 }

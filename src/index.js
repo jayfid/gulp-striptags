@@ -1,15 +1,15 @@
 'use strict';
 
-const striptags = require('striptags');//.init_streaming_mode;
-const through = require('through2');
-const gutil = require('gulp-util');
-const PluginError = gutil.PluginError;
-
 const PLUGIN_NAME = 'gulp-striptags';
 
+const util = require('striptags');
+const gutil = require('gulp-util');
+const PluginError = gutil.PluginError;
+var through = require('through2');
 
 module.exports = function(options) {
     options = options || {};
+
     return through.obj(function(file, encoding, cb) {
         if (file.isNull()) {
             return cb(null, file);
@@ -19,11 +19,9 @@ module.exports = function(options) {
             cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
         }
 
-        if (!file.isBuffer()) {
-            cb(new PluginError(PLUGIN_NAME, 'Unsupported input.'));
+        if (file.isBuffer()) {
+            file.contents = new Buffer(util(String(file.contents), options));
         }
-
-        file.contents = new Buffer(striptags(String(file.contents), options));
 
         cb(null, file);
     });
