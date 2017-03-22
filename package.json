@@ -9,9 +9,14 @@
   "keywords": [
     "gulp-striptags",
     "striptags",
-    "remove",
-    "html"
+    "sanitize",
+    "html",
+    "gulpplugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jayfid/gulp-striptags.git"
+  },
   "author": "jayfid",
   "license": "ISC",
   "dependencies": {
